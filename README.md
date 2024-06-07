@@ -4,82 +4,38 @@
 
 This project is a simulation of a rover navigating a grid with obstacles, following a set of commands. The rover can move in four directions (North, East, South, West) and turn left or right. The grid is defined with a specified width and height, and obstacles can be placed at specific coordinates.
 
-## Components
+# Excersice-2: Design Patterns in Java
 
-### Position Class
+## A. Structural Patterns
 
-The `Position` class represents the current position and direction of the rover. It consists of:
+### 1. Adapter Pattern
+Adapts a Bird to a ToyDuck interface using an Adapter.
 
-- `x`: x-coordinate on the grid
-- `y`: y-coordinate on the grid
-- `direction`: current direction the rover is facing (N, E, S, W)
+### 2. Facade Pattern
+Simplifies interactions with a zoo using a ZooFacade.
 
-### Rover Class
+### 3. Proxy Pattern
+Controls access to a RealLion using a ProxyLion.
 
-The `Rover` class simulates the rover and its movements on the grid. Key functionalities include:
+## B. Creational Patterns
 
-- `move()`: Moves the rover one step in the current direction.
-- `turn_left()`: Turns the rover 90 degrees to the left.
-- `turn_right()`: Turns the rover 90 degrees to the right.
-- `is_within_bounds(position)`: Checks if a given position is within the grid boundaries.
-- `is_obstacle(position)`: Checks if a given position contains an obstacle.
+### 1. Singleton Pattern
+Ensures a class has only one instance and provides a global point of access to it.
 
-### Command Pattern
+### 2. Factory Pattern
+Provides an interface for creating objects, but allows subclasses to alter the type of objects that will be created.
 
-The command pattern is implemented to decouple the sender of a request (the commands) from the receiver (the rover that executes the commands). This allows for flexible command execution and easier extension.
+### 3. Builder Pattern
+Separates the construction of a complex object from its representation, allowing the same construction process to create different representations.
 
-- `Command` (abstract class): Defines the `execute()` method.
-- `MoveCommand`, `TurnLeftCommand`, `TurnRightCommand`: Concrete implementations of the `Command` interface that execute specific actions on the rover.
+## C. Behavioural Patterns
 
-### Grid Class
+### 1. Chain of Responsibility Pattern
+Allows an object to send a command without knowing what object will receive and handle it. Handles requests for different types of animals.
 
-The `Grid` class defines the boundaries of the simulation area:
+### 2. Memento Pattern
+Provides the ability to restore an object to its previous state. Saves and restores the state of an Animal.
 
-- `width`: Width of the grid.
-- `height`: Height of the grid.
-
-## Example Usage
-
-An example of using the rover and its commands:
-
-```python
-if __name__ == "__main__":
-    # Define grid and obstacles
-    grid = Grid(10, 10)
-    obstacles = [(2, 2), (3, 5)]
-
-    # Initialize rover
-    start_position = Position(0, 0, 'N')
-    rover = Rover(grid, start_position, obstacles)
-
-    # Define commands
-    commands = [
-        MoveCommand(rover),   # Move North from (0, 0, N) to (0, 1, N)
-        MoveCommand(rover),   # Move North from (0, 1, N) to (0, 2, N)
-        TurnRightCommand(rover),  # Turn right from (0, 2, N) facing East
-        MoveCommand(rover),   # Move East from (0, 2, E) to (1, 2, E)
-        TurnLeftCommand(rover),   # Turn left from (1, 2, E) facing North
-        MoveCommand(rover),    # Move North from (1, 2, N) to (1, 3, N)
-        TurnRightCommand(rover)   # Turn right from (1, 3, N) to (1, 3, E)
-    ]
-
-    # Execute commands
-    for command in commands:
-        command.execute()
-        logging.info(f"Rover's position: {rover.position}")
-
-    # Print final position
-    logging.info(f"Rover is at {rover.position}")
-
-```
-# Logging
-The project uses Python's logging module to provide detailed logs for each movement, obstacle detection, and final position.
-
-# Running the Simulation
-To run the simulation, ensure you have Python installed and execute the script. The logging.basicConfig function is used to configure the logging output to display information about each command executed and the rover's final position.
-
-# Notes
-- Ensure that the grid and start position are within the specified boundaries.
-- Obstacles can be defined as coordinates where the rover cannot move.
-
+### 3. Observer Pattern
+Defines a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically.
 
