@@ -102,7 +102,7 @@ java SingletonPattern
 
 ### Instructions
 
-1. **Compile and Run**: To compile and run each demo, follow the instructions provided in the README.md file.
-2. **License**: Make sure to include the appropriate license details in your repository.
+**Compile and Run**: To compile and run each demo, follow the instructions provided in the README.md file.
+
 
 This README file provides a clear and concise overview of each design pattern, describes their implementations, and gives instructions on how to run each example. It should be suitable for presentation in a job application or interview scenario.
