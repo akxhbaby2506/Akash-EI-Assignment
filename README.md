@@ -81,3 +81,5 @@ To run the simulation, ensure you have Python installed and execute the script. 
 # Notes
 - Ensure that the grid and start position are within the specified boundaries.
 - Obstacles can be defined as coordinates where the rover cannot move.
+
+
